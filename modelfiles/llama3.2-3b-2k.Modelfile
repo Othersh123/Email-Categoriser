@@ -1,0 +1,9 @@
+# llama3.2:3b with a 2048-token context window.
+# At the default 4096, the model plus its KV cache needs ~2.9 GB and spills
+# onto the CPU on a 4 GB GTX 1050 Ti. At 2048 it needs ~2.3 GB and runs 100% on GPU.
+# The OpenAI-compatible endpoint (/v1) can't set num_ctx per request, so we bake it in here.
+#
+# Build it with:  ollama create llama3.2-3b-2k -f modelfiles/llama3.2-3b-2k.Modelfile
+
+FROM llama3.2:3b
+PARAMETER num_ctx 2048

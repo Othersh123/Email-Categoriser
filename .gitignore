@@ -1,0 +1,12 @@
+# Real email data never goes in git (see CLAUDE.md privacy rules)
+data/private/
+
+# Gmail API credentials and OAuth tokens
+credentials*.json
+token*.json
+.env
+
+# Python virtual environment and caches
+.venv/
+__pycache__/
+*.pyc
