@@ -1,6 +1,9 @@
 # Real email data never goes in git (see CLAUDE.md privacy rules)
 data/private/
 
+# Working instructions for Claude Code, kept private
+CLAUDE.md
+
 # Gmail API credentials and OAuth tokens
 credentials*.json
 token*.json
