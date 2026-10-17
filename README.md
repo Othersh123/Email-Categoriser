@@ -15,7 +15,7 @@ I'm a Product Manager. I want to understand how LLMs actually behave (what they 
 
 ## Categories
 
-Spam, Important, Credit card rewards, Brand offers, Podcast links, Blog posts.
+Spam, Statements, Important, Podcasts and blogs, Promotions, Other. Definitions and tie-breaking rules are in [categories.md](categories.md).
 
 ## Roadmap
 

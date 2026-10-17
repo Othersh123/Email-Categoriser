@@ -9,6 +9,11 @@ credentials*.json
 token*.json
 .env
 
+# Google Drive shortcut files (contain my email and a doc ID)
+*.gsheet
+*.gdoc
+*.gslides
+
 # Python virtual environment and caches
 .venv/
 __pycache__/

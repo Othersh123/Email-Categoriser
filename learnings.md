@@ -26,3 +26,24 @@ Updated my NVIDIA driver, installed Ollama on D: (C: only had 13 GB free), downl
 - "Runs on device" depends on driver, runtime, disk, RAM and VRAM. A failure in any of them shows up as "it's slow," not as an error. That's a support ticket.
 - Context window is a memory cost paid up front, not a free feature. Pick it based on the longest input you actually need.
 - Chat memory is the app resending the transcript. Every turn costs more than the last.
+
+## 2026-10-17: Phase 1, eval set and first classifier
+
+**What I tried:**
+Wrote down category definitions in categories.md, then 30 fake emails with correct labels (13 deliberately tricky). Built a prompt that asks for JSON and a script that scores every email.
+
+**What happened:**
+- 22/30 correct (73%). Easy emails 76%, tricky 69%.
+- Zero format failures. JSON mode made the output valid every time.
+- The model over-calls Spam. 4 of the 8 misses were legit emails marked Spam, including a real card statement. Of the 9 emails it called Spam, only 5 were.
+- It never picked Other (0/3). LinkedIn became Podcasts and blogs.
+- An order confirmation became Promotions and an electricity bill became Statements. Both were "easy" for me, not for the model.
+
+**What surprised me:**
+My first Spam definition used "senders I never signed up with." The model can't know that. It only sees the email. I had to rewrite the rule around deception instead.
+
+**What this means for building products:**
+- Every rule in an AI spec has to be answerable from what the model actually sees.
+- 100% on a label can be fake. Spam caught every real spam email because it called lots of things spam. You need to look at both directions.
+- Mistakes don't cost the same. A statement in Spam is a missed bill. A promo in Other is nothing. Decide which error to avoid before chasing accuracy.
+- 30 emails is a baseline, not a verdict. One email moves the score by 3 points.
